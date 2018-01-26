@@ -1,0 +1,45 @@
+Assignment 1: Arytmetyka
+
+Arithemtics of approximate values
+
+Everewhere where we perform measurements of physical quantities 
+the results come with errors, e.g. 5m ± 10%.
+Each such value we treat as a set of possible values.
+Implement a package of arithmetic operations on such approximate values 
+containing:
+
+constructors:
+  - [Eng. value_accuracy - own. note] wartosc_dokladnosc x p = 
+    x ± p% (for p > 0),
+  - [Eng. value_from_to - own. note] wartosc_od_do x y = 
+    (x+y)/2 ± (y-x)/2 (for x < y),
+  - [Eng. accurate_value - own. note] wartosc_dokladna x = x ± 0
+
+selectors:
+  - [Eng. in_value - own. note] in_wartosc x y ⇔ wartość x może być równa y,
+  - [Eng. min_value - own. note] min_wartosc x = infimum of possible values 
+    of x (or -∞ if possible values of x have no lower bound),
+  - [Eng. max_value - own. note] max_wartosc x = supremum of possible values
+    of x (or ∞ if possible values of x have no upper bound),
+  - [Eng. mean_value - own. note] sr_wartosc x = mean (arithmetic)
+    of values min_wartosc x and max_wartosc x
+    (or nan if min_wartosc x and max_wartosc x are not finite),
+
+modifiers:
+  - plus a b = { x + y : in_wartosc a x ∧ in_wartosc b y },
+  - minus a b = { x - y : in_wartosc a x ∧ in_wartosc b y },
+  - [Eng. times - own. note] razy a b = 
+    { x · y : in_wartosc a x ∧ in_wartosc b y },
+  - [Eng. divided - own. note] podzielic a b = 
+    {x / y:  in_wartosc a x ∧ in_wartosc b y }.
+
+We assume, implicite, that all arguments of type float are real numbers
+(i.e. they are different from infinity, neg_infinity and nan).
+In the case of the result not being a real number it should be the adequate
+value from {infinity, neg_infinity, nan}.
+
+Assume, that modifiers enclose the resultant value sets, i.e. if, for example,
+the result is an open interval, then it is changed to a closed interval.
+
+Your task should be implemented in arytmetyka.ml file and be compatible
+with the arytmetyka.mli interface.
