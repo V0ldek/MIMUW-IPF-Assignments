@@ -1,6 +1,7 @@
 # IPF-Assignments
 Assignments from Introduction to Programming (Functional approach), 
 MIM UW, year 1 (language: OCaml)
+
 Copyright (C) 2017-2018 Mateusz Gienieczko
 
 This repository contains 6 problems given as credited assignments
