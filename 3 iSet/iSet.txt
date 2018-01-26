@@ -1,0 +1,39 @@
+Assignment 3: Tree Modification
+
+The task is about modifying a library of sets of singular elements
+implemented as a certain variant of AVL trees (BST trees with balancing).
+Thanks to the balancing, the height of the tree is always O(log) of the number
+of nodes and so all operations are performed in logarithmic time
+(even the split operation, which is less obvious: it is because the cost of the
+join operation is actually proportional to the difference in heights of the
+joined trees. And because split is a sequence of join operations on higher and
+higher trees, their costs sum up to the height of the tree times a constant).
+
+The result of the modification is meant to be a library of sets of integers,
+based upon intervals. The elements in the tree will be intervals, and not
+singular numbers. The intervals have to be disjoint and additionally, to prevent
+ambiguous representations, the intervals cannot be "neighboring", so, e.g.
+two intervals [1..3] and [4..6] should be replaced by a single interval [1..6].
+We allow one-element sets like [3..3].
+
+All operations (except for fold, iter, elements and is_empty) are ought to
+perform in O(log n) time, where n is the number of the nodes in the tree.
+[It is not clearly stated if the time can be amortised, but my implementation
+is NOT amortised, but "purely" O(log n), which makes it possible to use the iSet
+as a persistent data structure efficientely - own. note].
+
+Original specification and implementation of the sets are attached to the task
+(both available on GNU Lesser General Public License) and the specification
+of the interval set, which should be implemented and sent through Moodle
+[System used by the University for task evaluation - own. note] as an iSet.ml
+file.
+
+During the implementation take into account how Your code acts with numbers
+equal or close to max_int (or min_int). In particular specific requirements
+about this aspect for function below is given in the specification (iSet.mli).
+
+As always, the implementation should be documented; in particular data structure
+invariants should be noted in the comments, as well as pre- and post- conditions
+of all methods in the impementation (especially the ones not included within
+the specification). Those conditions can apply to, e.g. correctness
+of the trees, assumed difference of heights, etc.
