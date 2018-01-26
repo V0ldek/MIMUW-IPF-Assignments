@@ -1,0 +1,59 @@
+Assignment 2: Leftist Trees
+
+Leftist trees are an interesting implementation of mergeable priority queues.
+
+Priority queues are structures storing data with priorities, allowing for
+easy acces to the element with the highest priority. (Traditionally,
+the lesser the value representing the priority, the higher the priority.)
+Such structures allow following operations:
+
+    create an empty structure,
+    insert a new element,
+    delete the element with the highest priority.
+
+Of course, after deleting the element with the highest priority, the second
+highest becomes the new highest and so on. Mergeable queues additionally
+allow merging of two queues into one.
+
+Priority queues are usually implemented using so called heaps, which are
+tree-like structures fulfilling the so called "heap condition", saying that
+the priority of the element in the root of each subtree is lesser or equal
+to all other elements in that subtree.
+
+Leftist trees are binary heaps (so each node can have 0, 1 or 2 sons) that
+fulfill an additional condition, the "leftist condition", which states that
+for each node the right-most path from that node is the shortest path to any
+of its subtree's leaves.
+
+Thanks to that, in every leftist tree the so called "right height", which is
+the length of the right-most path from root to a leaf, is at most logarithmic
+in size (compared to the number of elements of the tree). Additionally, to allow
+effective operation performance on the tree, in each node we store the right
+height of the subtree attached in that node.
+
+The most important operation on the leftist trees is merging. Other operations
+are very simple:
+    - inserting an element to an existing tree is creating a one-element tree
+      and merging it with the existing tree,
+    - deleting the highest priority element is deleting the root and merging
+      its subtrees.
+
+Merging of the leftist trees is not hard either. To merge two non-empty leftist
+trees, we choose as the first one (d1) as the one with higher priority in its
+root, and the second one (d2) as the one with the lesser priority. The root
+of the resultant tree will thus be the root of d1. Now we recursively merge
+the right subtree of d1 with entire d2, in result getting a tree d3. As the
+result of the entire merge operation on d1 and d2 we return a tree d4 with the
+root of d1 as its root and the left subtree of d1 and the tree d3 as its
+subtrees. The one with lesser right height becomes the right subtree of d4,
+therefore d4 remains a leftist tree. Of course, during the construction of d4
+one must remember to correctly set the new right height.
+
+A picture version of leftist tree merging can be found, for example, here:
+https://courses.cs.washington.edu/courses/cse326/00wi/handouts/lecture7/sld001.htm
+
+In our task we assume, for simplicity, that the data contains only 
+the priorities.
+
+Using leftist trees implement a mergeable priority queue fulfilling the attached
+interface in leftist.mli.
