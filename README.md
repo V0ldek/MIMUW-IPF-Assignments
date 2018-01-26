@@ -14,7 +14,7 @@ Each tasks' reviewer is listed in the header comment in the solution files.
 
 There were two weeks for the completion of each task.
 
-Solutions in this repository are correct, with correct meaning they passed
+Solutions in this repository are "correct", with correct meaning they passed
 all the official and unofficial tests, and were graded for maximum points.
 
 Each problem folder contains:
