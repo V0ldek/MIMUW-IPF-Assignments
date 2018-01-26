@@ -37,3 +37,5 @@ invariants should be noted in the comments, as well as pre- and post- conditions
 of all methods in the impementation (especially the ones not included within
 the specification). Those conditions can apply to, e.g. correctness
 of the trees, assumed difference of heights, etc.
+
+[The original pSet module is not used anywhere within the solution - own. note].

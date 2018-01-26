@@ -35,3 +35,8 @@ The interface files were not changed, hence they're mainly in Polish.
 Some descriptions contain my own notes, marked as
 ["note" - own. note] (owner's note)
 
+The tests are designed to cover most corner cases, generic cases as well as
+performance where it is of essence. Note that the estimate execution times
+included in some of the tests are for bytecode-compiled files, native will
+be much faster.
+
