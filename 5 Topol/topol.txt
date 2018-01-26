@@ -1,0 +1,23 @@
+Assignment 5: Topological Sort
+
+Topological sorting is an extension of a directed acyclic graph (DAG) to a
+linear ordering.
+
+In simpler terms, being given a DAG we should assign such distinct natural
+numbers to the nodes (giving an ordering of the nodes), so that for each
+edge in the graph its source has a lower number than its target.
+
+In even simpler terms, having a partial information about a dependecy,
+for example of actions from each other (e.g. we put on shoes after socks,
+tie after a shirt etc., but the order of putting on the socks and the shirt
+can be arbitrary), we are to generate a strict order of the actions execution
+(e.g. shirt, socks, shoes, tie).
+
+Specifically we are to program an implementation topol.ml of the attached 
+specification topol.mli.
+
+In the implementation You can use the module pMap (very similar to pSet from
+the earlier task), whose specification and implementation is also attached.
+
+[My solution does not use the pMap module, but the standard OCaml Hashtbl
+module - own. note]
