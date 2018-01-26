@@ -1,0 +1,42 @@
+Assignment 4: Origami
+Implement a library for origami enthusiasts, to study the number of layers
+of a cleverly folded sheet of paper has in a given point. The library should
+implement the interface origami.mli, given below:
+
+Solutions substantially using higher-order procedures will be graded higher.
+
+type point = float * float
+(** Point on a plane *)
+
+type kartka = point -> int
+(** [Eng. sheet - own. note] A folded sheet of paper: how many times the sheet
+is pierced when thrusting a drawing pin through a given point *)
+
+val prostokat : point -> point -> kartka
+(** [Eng. rectangle - own. note] prostokat p1 p2 returns a sheet representing
+an enclosed rectangle with sides paralell to the coordinate axes and its
+bottom-left corner at p1 and top-right corner at p2. Point p1 has to be
+(not strictly) to the left and bottom of the point p2. When a pin is thrusted
+through the insides (or sides) of the rectangle, the sheet is pierced 1 time,
+in all other cases 0 times *)
+
+val kolko : point -> float -> kartka
+(** [Eng. circle - own. note] kolko p r returns a sheet representing an enclosed
+circle with its center at point p and radius r *)
+
+val zloz : point -> point -> kartka -> kartka
+(** [Eng. fold - own. note] zloz p1 p2 k folds the sheet k along a straight line 
+going through points p1 and p2 (the points have to be distinct). The sheet is 
+folded so that from the right side of the line (looking in the direction from 
+p1 to p2) it is moved to the left side. Piercing it on the right side 
+should yield 0. Piercing through the line p1 p2 should yield the same number
+as it did before the fold. On the left side of the line should yield the same as 
+before fold plus the result for the point that covered the pierce-through point 
+(also before the fold) *)
+
+val skladaj : (point * point) list -> kartka -> kartka
+(** [Eng. fold (continuous tense) - own. note] 
+skladaj [(p1_1,p2_1);...;(p1_n,p2_n)] k = 
+zloz p1_n p2_n (zloz ... (zloz p1_1 p2_1 k)...)]
+so the result is the sheet k folded along all the lines from the list, 
+in sequence *)
