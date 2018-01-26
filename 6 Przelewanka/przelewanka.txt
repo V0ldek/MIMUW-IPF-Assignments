@@ -1,0 +1,21 @@
+Assignment 6: Przelewanka
+[Eng. poorly transated to "Pouring" - own. note]
+
+There are n glasses given, numbered 1 through n, with volumes x1, x2, ..., xn
+respectively. Initially all the glasses are empty. You are given following
+operations:
+
+  - Fill the chosen glass full of tap water,
+  - Empty the chosen glass into the sink,
+  - Pour water from one glass to another - if it fits, You pour all the water,
+    if not, then as much as is needed to fill the second glass.
+
+Your target is a situation in which every glass is filled to a certain level,
+y1, y2, ..., yn respectively.
+
+Write a procedure przelewanka: (int * int) array -> int, that takes a given
+array of pairs [|(x1, y1); (x2, y2); ...; (xn, yn)|] determines the minimal
+number of operations needed to reach the descripted situtation. If reaching
+it is impossible, the correct answer is -1.
+
+You can assume that 0 ≤ n and 0 ≤ yi ≤ xi for i = 1, 2, ..., n.
