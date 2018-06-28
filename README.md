@@ -1,6 +1,6 @@
-# IPF-Assignments
+# Courses-IPF-Assignments
 Assignments from Introduction to Programming (Functional approach), 
-MIM UW, year 1 (language: OCaml)
+MIM UW 2017/18 (language: OCaml)
 
 Copyright (C) 2017-2018 Mateusz Gienieczko
 
