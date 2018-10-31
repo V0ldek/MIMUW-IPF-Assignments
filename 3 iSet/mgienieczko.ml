@@ -102,7 +102,7 @@ print_endline "OK.";;
 
 (* Performance tests *)
 
-print_endline "Performance tests... ";;
+print_endline "Performance tests. Expected running time is about 1.5 minutes...";;
 
 let rec aux l i =
   if i = 0 then l
@@ -146,8 +146,8 @@ remove (min_int, max_int) a;;
 
 print_endline "OK.";;
 
-print_endline "Beginning persistent data structure tests
-(amortized time solutions will fail these tests)... ";;
+print_endline "Beginning persistent data structure performance tests. Expected running time is about 15 seconds
+(amortized time solutions are suboptimal and run for waaay too long on these)... ";;
 
 for i = 0 to 10000 do
   (fun _ -> ()) (add (min_int + i, max_int - i) a)

@@ -38,7 +38,9 @@ let size q =
 (* Wrapper for (::) *)
 let app h t = h::t
 ;;
-		   
+
+print_endline "Beginning test run. Expected running time is 40-50 seconds (bytecode).";;
+
 (* Integer correctness tests *)
 
 print_endline "Integer correctness tests... ";;
